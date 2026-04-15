@@ -1,6 +1,7 @@
-COMANDOS USADOS PRACTICA 1:INSTALACI”N Y CONFIGURACI”N DE DOCKER
+COMANDOS USADOS PRACTICA 1:INSTALACI√ìN Y CONFIGURACI√ìN DE DOCKER
 
 #1 Actualizar el sistema
+sudo su
 sudo dnf update -y
 
 #2 Desinstalamos todo para que nada se superponga (en caso de haber antiguas versiones de Docker)
@@ -36,7 +37,7 @@ sudo systemctl enable --now docker
 #7 Verificar estado de Docker
 sudo systemctl status docker
 
-#8 Probar instalaciÛn
+#8 Probar instalaci√≥n
 sudo docker run hello-world
 
 #9 Descargar la imagen de NGINX desde Docker Hub
@@ -47,7 +48,7 @@ sudo docker pull nginx
 sudo mkdir -p /home/website
 cd /home/website/
 
-#11 Crear archivo HTML con nombre y matrÌcula
+#11 Crear archivo HTML con nombre y matr√≠cula
 echo "<h1>Angel Gabriel Valenzuela Ramirez - Matricula 2025-1447</h1>" | sudo tee /home/website/index.html
 
 #12 Crear el contenedor NGINX exponiendo puerto 8888 -> 80 y montando el volumen
@@ -65,12 +66,13 @@ sudo docker ps -a
 
 
 
-COMANDOS USADOS PRACTICA 2: INSTALACI”N Y CONFIGURACI”N DE PORTAINER
+COMANDOS USADOS PRACTICA 2: INSTALACI√ìN Y CONFIGURACI√ìN DE PORTAINER
 
 #1 - Descargar la imagen de Portainer desde Docker Hub
+sudo su
 sudo docker pull portainer/portainer-ce
 
-#2 - Crear un volumen para almacenar la configuraciÛn de Portainer
+#2 - Crear un volumen para almacenar la configuraci√≥n de Portainer
 sudo docker volume create portainer_data
 
 #3 - Crear y ejecutar el contenedor de Portainer CE
@@ -88,7 +90,7 @@ sudo docker run -d \
   --name portainer \
   portainer/portainer-ce
 
-#4 - Verificar que el contenedor est· en ejecuciÛn
+#4 - Verificar que el contenedor est√° en ejecuci√≥n
 sudo docker ps -a
 
 #5 - Acceder a la interfaz web de Portainer
@@ -101,16 +103,16 @@ sudo docker ps -a
 
 #7 - Vincular Portainer con el Docker Engine local
 # En la interfaz:
-# "Get Started" -> seleccionar "Local Environment"
+# "Add Environments" -> seleccionar "Docker Standalone" -> Start Wizard -> socket y agregar nombre
 
 #8 - Detener el contenedor de NGINX desde la interfaz de Portainer
-# SecciÛn:
+# Secci√≥n:
 # Containers -> nginx -> Stop
 
-#9 - Verificar en el navegador que NGINX est· detenido
+#9 - Verificar en el navegador que NGINX est√° detenido
 # Ir a:
 # http://127.0.0.1:8888
-# Debe dejar de mostrar la p·gina web (error o sin respuesta)
+# Debe dejar de mostrar la p√°gina web (error o sin respuesta)
 
 
 
@@ -122,7 +124,7 @@ sudo docker ps -a
 
 COMANDOS USADOS PRACTICA 3: DESPLIEGE DE CONTENEDOR DE WORDRESS UTILIZANDO DOCKER COMPOSE
 
-#1 - InstalaciÛn de Docker-Compose
+#1 - Instalaci√≥n de Docker-Compose
 ----------------------------------
 sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
@@ -179,7 +181,7 @@ volumes:
 ----------------------------------
 sudo docker compose up -d
 
-# Verificar que est·n corriendo
+# Verificar que est√°n corriendo
 docker ps
 
 #5 - Acceder a WordPress desde el navegador
@@ -191,5 +193,5 @@ http://127.0.0.1:8080
 # - Idioma
 # - Nombre del sitio
 # - Usuario admin
-# - ContraseÒa
+# - Contrase√±a
 
